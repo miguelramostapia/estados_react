@@ -12,9 +12,9 @@ function Registro() {
         mensajeSocial = "o usa tu email para registrarte";
   return (
     <>
-            <Formulario/>
             <SocialButton titulo={tituloSocial} imagen1 = {fuente1} imagen2 = {fuente2} imagen3 = {fuente3}
                           mensaje = {mensajeSocial}></SocialButton>
+            <Formulario/>
             <Alert/>
     </>
   )

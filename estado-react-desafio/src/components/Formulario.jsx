@@ -1,9 +1,38 @@
 import { useState } from 'react'
 
 function Formulario() {
+    //Estados del formulario
+    const [nombre, setNombre] = useState('');
+    const [email, setEmail] = useState('');
+    const [contraseña,setContraseña] = useState('');
+    const [confirmaContraseña,setConfirmaContraseña] = useState('');
+
+    const handleNombreChange = (event)=>{setNombre(event.target.value);};
+    const handleEmailChange = (event)=>{setEmail(event.target.value);};
+    const handleContraseñaChange = (event)=>{setContraseña(event.target.value);};
+    const handleConfirmaContraseñaChange = (event)=>{setConfirmaContraseña(event.target.value);};
+
+
   
   return (
     <>
+        <form >
+            <div className="form-group">
+                <input type="text" name="nombre" className="form-control" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
+            </div>
+            <div className="form-group">
+                <input type="text" name="email" className="form-control" onChange={handleEmailChange} placeholder='correo@dominio.cl'/>
+            </div>
+            <div className="form-group">
+                <input type="text" name="contraseña" className="form-control" onChange={handleContraseñaChange} placeholder='Ingrese su contraseña' />
+            </div>
+            <div className="form-group">
+                <input type="text" name="confirmaContraseña" className="form-control" onChange={handleConfirmaContraseñaChange} placeholder='Confirmar Contraseña'/>
+            </div>
+
+            <button type="submit" className="btn
+            btn-primary">Enviar</button>
+        </form>
     </>
   )
 }
