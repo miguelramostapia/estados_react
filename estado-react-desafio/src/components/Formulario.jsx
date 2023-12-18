@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Formulario() {
+function Formulario(props) {
     //Estados del formulario
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
@@ -26,13 +26,7 @@ function Formulario() {
         if(!regexParacorreo.test(email)){setError(1);return;}
 
         if(contraseña!=confirmaContraseña){setError(3);return;}
-
-        /*        // Validación input
-        if(nombre==='' || apellido==='' || edad==='' || email==='') {setError(true);return;};
-        setError(false);
-        setNombre('');setApellido('');setEdad('');setEmail('');
-
-*/
+        setError(4);return;
     }
   
   return (
@@ -42,6 +36,7 @@ function Formulario() {
             {error==1 ? <p className='error'>El correo está remal escrito pos oiga</p> : null}
             {error==2 ? <p className='error'>Debe ingresar un correo</p> : null}
             {error==3 ? <p className='error'>Las Contraseñas deben de ser igualitas</p> : null}
+            {error==4 ? <p className='error'>Registro ingresado exitosamente</p> : null}
             <div className="form-group">
                 <input type="text" name="nombre" className="form-control" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
             </div>
@@ -55,8 +50,7 @@ function Formulario() {
                 <input type="text" name="confirmaContraseña" className="form-control" onChange={handleConfirmaContraseñaChange} placeholder='Confirmar Contraseña'/>
             </div>
 
-            <button type="submit" className="btn
-            btn-primary">Enviar</button>
+            <button type="submit" className="btn btn-primary">Registrarse</button>
         </form>
     </>
   )
