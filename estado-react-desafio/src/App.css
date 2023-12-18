@@ -41,3 +41,11 @@
   color: #888;
 }
 
+.error {
+  padding: 10px;
+  color: white;
+  background-color: red;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+}
