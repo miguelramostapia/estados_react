@@ -1,6 +1,16 @@
 import { useState } from 'react'
 
 function Formulario() {
+  
+  return (
+    <>
+    </>
+  )
+}
+
+export default Formulario
+/*
+
     //Estados del formulario
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -18,6 +28,7 @@ function Formulario() {
 
     const handleColorChange = (event)=>{setMiColor(event.target.value);};*/
 
+ /* eliminar este comentario cuando pueda
     const validarInput = (e) => {
         // Prevenimos el comportamiento por defecto
         e.preventDefault();
@@ -27,9 +38,11 @@ function Formulario() {
         setError(false);
         setNombre('');setApellido('');setEdad('');setEmail('');
     }
-  
-  return (
-    <>
+*/
+
+
+/*
+
             <form className="formulario" onSubmit={validarInput}>
                 {error ? <p className='error'>Todos los campos son obligatorios</p> : null}
                 <div className="form-group">
@@ -51,8 +64,4 @@ function Formulario() {
                 <button type="submit" className="btn
                 btn-primary">Enviar</button>
             </form>
-    </>
-  )
-}
-
-export default Formulario
+*/
