@@ -8,7 +8,7 @@ function SocialButton(props) {
     <>
       <div>
         <h1>{props.titulo}</h1>
-        <img src={props.imagen1}/><img src={props.imagen2}/><img src={props.imagen3}/>
+        <img src={props.imagen1} width="5%" height="5%"/><img src={props.imagen2}width="5%" height="5%"/><img src={props.imagen3}width="5%" height="5%"/>
         <h5>{props.mensaje}</h5>
       </div>
     </>

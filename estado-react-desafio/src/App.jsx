@@ -6,12 +6,10 @@ import Registro from './components/Registro'
 
 
 function App() {
-  const textoExito = "El ingreso del registro ha sido exitoso",
-        textoFalla = "El ingreso no ha sido exitoso"
 
   return (
     <>
-        <Registro mensajeExito = {textoExito} mensajeFalla = {textoFalla}/>
+        <Registro/>
     </>
   )
 }

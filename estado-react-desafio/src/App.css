@@ -49,3 +49,17 @@
   font-weight: bold;
   border-radius: 10px;
 }
+
+.exito {
+  padding: 10px;
+  color: white;
+  background-color: blueviolet;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.formulario {
+  display:flex;
+  flex-direction:column;
+}

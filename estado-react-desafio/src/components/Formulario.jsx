@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-function Formulario(props) {
+
+function Formulario({setError, setExito}) {
     //Estados del formulario
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
     const [contraseña,setContraseña] = useState('');
     const [confirmaContraseña,setConfirmaContraseña] = useState('');
-    const [error, setError] = useState(10);
  
     const handleNombreChange = (event)=>{setNombre(event.target.value);};
     const handleEmailChange = (event)=>{setEmail(event.target.value);};
@@ -16,39 +16,30 @@ function Formulario(props) {
     const validarInput = (e) => {
         // Prevenimos el comportamiento por defecto
         e.preventDefault();
+        const regexParaNombre = /^([a-zA-Z]+)(\s[a-zA-Z]+)*$/;
+        const regexParacorreo = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+        //const regexParacorreo = /.+@.+\.[A-Za-z]+$/;
+        setError(0);setExito(0);
+        if(nombre ===''|| email ==='' || contraseña ==='' || confirmaContraseña===''){setError(1);return;}
 
-        const regexParacorreo = /.+@.+\.[A-Za-z]+$/;
+        if(!regexParaNombre.test(nombre)){setError(2);return;}
 
-        if(nombre ===''|| email ==='' || contraseña ==='' || confirmaContraseña===''){setError(0);return;}
+        if(!regexParacorreo.test(email)){setError(3);return;}
 
-        if(email ===''){setError(2);return;}
-
-        if(!regexParacorreo.test(email)){setError(1);return;}
-
-        if(contraseña!=confirmaContraseña){setError(3);return;}
-        setError(4);return;
+        if(contraseña!=confirmaContraseña){setError(4);return;}
+        setExito(1);return;
     }
   
   return (
     <>
         <form className="formulario" onSubmit={validarInput}>
-            {error==0 ? <p className='error'>Todos los campos deben ser ingresados</p> : null}
-            {error==1 ? <p className='error'>El correo está remal escrito pos oiga</p> : null}
-            {error==2 ? <p className='error'>Debe ingresar un correo</p> : null}
-            {error==3 ? <p className='error'>Las Contraseñas deben de ser igualitas</p> : null}
-            {error==4 ? <p className='error'>Registro ingresado exitosamente</p> : null}
-            <div className="form-group">
-                <input type="text" name="nombre" className="form-control" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
-            </div>
-            <div className="form-group">
-                <input type="text" name="email" className="form-control" onChange={handleEmailChange} placeholder='correo@dominio.cl'/>
-            </div>
-            <div className="form-group">
-                <input type="text" name="contraseña" className="form-control" onChange={handleContraseñaChange} placeholder='Ingrese su contraseña' />
-            </div>
-            <div className="form-group">
-                <input type="text" name="confirmaContraseña" className="form-control" onChange={handleConfirmaContraseñaChange} placeholder='Confirmar Contraseña'/>
-            </div>
+
+            <input type="text" name="nombre" className="form-control" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
+            <input type="text" name="email" className="form-control" onChange={handleEmailChange} placeholder='correo@dominio.cl'/>
+            <input type="password" name="contraseña" className="form-control" onChange={handleContraseñaChange} placeholder='Ingrese su contraseña' />
+            <input type="password" name="confirmaContraseña" className="form-control" onChange={handleConfirmaContraseñaChange} placeholder='Confirmar Contraseña'/>
+
 
             <button type="submit" className="btn btn-primary">Registrarse</button>
         </form>
